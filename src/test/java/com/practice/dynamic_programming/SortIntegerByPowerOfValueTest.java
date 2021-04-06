@@ -6,7 +6,7 @@ import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class SortIntegerByPowerOfValueTest {
+public class SortIntegerByPowerOfValueTest {
 
   @DisplayName("GIVEN low and high value and kth position WHEN getKth function is invoked THEN it returns the kth element from the list of number between low to high in the ascending order with their power")
   @Test

@@ -5,7 +5,7 @@ import static org.hamcrest.core.Is.is;
 
 import org.junit.jupiter.api.Test;
 
-class BestTimeToBuyAndSellStockTest {
+public class BestTimeToBuyAndSellStockTest {
 
   @Test
   public void GIVEN_prices_array_with_possible_outcome_WHEN_max_profit_is_called_THEN_it_returns_the_max_profit() {

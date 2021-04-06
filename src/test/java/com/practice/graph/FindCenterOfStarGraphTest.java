@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class FindCenterOfStarGraphTest {
+public class FindCenterOfStarGraphTest {
 
   @DisplayName("Find the center star")
   @Test

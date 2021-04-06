@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class FindTheTownJudgeTest {
+public class FindTheTownJudgeTest {
 
   @DisplayName("Test with Possible Town Judge")
   @Test

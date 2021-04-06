@@ -9,7 +9,7 @@ import org.hamcrest.core.Is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class MinimumNumberOfVerticesToReachAllNodesTest {
+public class MinimumNumberOfVerticesToReachAllNodesTest {
 
   @DisplayName("Find minimum number of vertices to reach all nodes.")
   @Test

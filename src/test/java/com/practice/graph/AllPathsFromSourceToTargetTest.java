@@ -9,7 +9,7 @@ import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class AllPathsFromSourceToTargetTest {
+public class AllPathsFromSourceToTargetTest {
 
   @DisplayName("Find all the possible paths between the Source and Destination")
   @Test
