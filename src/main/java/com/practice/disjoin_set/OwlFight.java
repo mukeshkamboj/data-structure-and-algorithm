@@ -27,6 +27,7 @@ public class OwlFight {
   private int findRoot(int owl) {
     int temp = owl;
     while (disjointSet[temp] != temp) {
+      disjointSet[temp] = disjointSet[disjointSet[temp]];
       temp = disjointSet[temp];
     }
     return temp;
