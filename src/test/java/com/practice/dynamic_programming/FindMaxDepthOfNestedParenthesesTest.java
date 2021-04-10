@@ -6,7 +6,7 @@ import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class FindMaxDepthOfNestedParenthesesTest {
+public class FindMaxDepthOfNestedParenthesesTest {
 
   @DisplayName("GIVEN a valid string with parentheses WHEN findDepthFunction is invoked THEN it returns the depth of the parentheses")
   @Test
