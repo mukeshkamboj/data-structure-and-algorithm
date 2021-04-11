@@ -5,7 +5,7 @@ import org.hamcrest.core.Is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class MinCostToConnectAllPointsTest {
+public class MinCostToConnectAllPointsTest {
 
   @DisplayName("GIVEN the points WHEN minCostConnectPoints method is invoked THEN it returns the minimum cost of edges connecting all the points.")
   @Test

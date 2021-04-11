@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class ShortestPathTest {
+public class ShortestPathTest {
 
   @DisplayName("GIVEN a graph and starting vertex without duplicate edges WHEN shortestReach function is called THEN shortest array containing distances from start vertex to all other vertices is returned and -1 if vertex is not reachable")
   @Test

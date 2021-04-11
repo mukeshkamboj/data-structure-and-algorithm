@@ -1,7 +1,6 @@
 package com.practice.graph.dijkstra;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -10,14 +9,6 @@ import java.util.PriorityQueue;
 import java.util.stream.IntStream;
 
 public class ShortestPath {
-
-  public static void main(String[] args) {
-    System.out.println(Arrays.toString(shortestReach(3, new int[][]{{1, 2, 10}, {2, 3, 5}}, 1)));
-    System.out.println(Arrays
-        .toString(shortestReach(4, new int[][]{{1, 2, 24}, {1, 4, 20}, {3, 1, 3}, {4, 3, 12}}, 1)));
-    System.out.println(
-        Arrays.toString(shortestReach(5, new int[][]{{1, 2, 10}, {1, 3, 6}, {2, 4, 8}}, 2)));
-  }
 
   static int[] shortestReach(int n, int[][] edges, int startVertexIndex) {
     int[] distanceFromStartVertexIndex = new int[n];

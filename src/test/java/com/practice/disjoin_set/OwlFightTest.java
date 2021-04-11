@@ -5,7 +5,7 @@ import org.hamcrest.core.Is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class OwlFightTest {
+public class OwlFightTest {
 
   @DisplayName("GIVEN owl, their friends relationship and queries WHEN whoWins method is invoked THEN owl number is returned.")
   @Test

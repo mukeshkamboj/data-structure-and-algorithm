@@ -5,7 +5,7 @@ import org.hamcrest.core.Is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class MergingCommunitiesTest {
+public class MergingCommunitiesTest {
 
   @DisplayName("GIVEN the number of nodes and queries for merging and merging node into single community WHEN union and merge methods are called THEN findSize returns the correct size of the node community")
   @Test
