@@ -10,7 +10,7 @@ import org.junit.jupiter.api.Test;
 
 public class ComponentsInGraphTest {
 
-  @DisplayName("GIVEN the edges and grpah is not connected graph WHEN componentsInGraph method is invoked THEN LOW and HIGH components size is returned in a list")
+  @DisplayName("GIVEN the edges and graph is not connected graph WHEN componentsInGraph method is invoked THEN LOW and HIGH components size is returned in a list")
   @Test
   public void testComponentLowAndHighSize() {
     //GIVEN
@@ -50,7 +50,6 @@ public class ComponentsInGraphTest {
     List<Integer> components = ComponentsInGraph.componentsInGraph(edges);
 
     //THEN
-
     MatcherAssert.assertThat(components, Is.is(new ArrayList<>() {{
       add(10000);
       add(10000);
