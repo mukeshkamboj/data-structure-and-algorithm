@@ -1,5 +1,6 @@
 package com.practice.dynamic_programming;
 
+// https://leetcode.com/problems/number-of-good-pairs/
 public class NumberOfGoodPairs {
 
   public static int numIdenticalPairs(int[] arr) {
