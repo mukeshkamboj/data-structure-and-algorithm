@@ -1,4 +1,4 @@
-package com.practice.dynamic_programming;
+package com.practice.array;
 
 // https://leetcode.com/problems/number-of-good-pairs/
 public class NumberOfGoodPairs {

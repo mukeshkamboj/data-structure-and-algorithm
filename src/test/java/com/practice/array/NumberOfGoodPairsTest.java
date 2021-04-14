@@ -1,4 +1,4 @@
-package com.practice.dynamic_programming;
+package com.practice.array;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.core.Is;
