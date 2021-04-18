@@ -65,5 +65,4 @@ public class KidsWithTheGreatestNumberOfCandiesTest {
     expectedList.add(true);
     MatcherAssert.assertThat(list, is(expectedList));
   }
-
 }

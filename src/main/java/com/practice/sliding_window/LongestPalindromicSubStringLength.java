@@ -3,12 +3,11 @@ package com.practice.sliding_window;
 //https://leetcode.com/problems/longest-palindromic-substring/
 public class LongestPalindromicSubStringLength {
 
-  public static void main(String[] args) {
-    System.out.println(longestPalindrome("abcba"));
-    System.out.println(longestPalindrome("eabcba"));
-  }
-
   public static String longestPalindrome(String str) {
+    if (str.equals("") || str.length() == 1) {
+      return str;
+    }
+
     int start = 0;
     int end = 0;
     for (int i = 0; i < str.length(); i++) {
@@ -24,7 +23,7 @@ public class LongestPalindromicSubStringLength {
       }
     }
 
-    return str.substring(start, end);
+    return end - start >= 2 ? str.substring(start, end) : "";
   }
 
   public static int[] isPalindrome(String str, int startPointer, int endPointer) {
