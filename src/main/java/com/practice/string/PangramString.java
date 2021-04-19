@@ -3,6 +3,7 @@ package com.practice.string;
 import java.util.HashSet;
 import java.util.Set;
 
+//https://leetcode.com/problems/check-if-the-sentence-is-pangram/
 public class PangramString {
 
   public static boolean isPangram(String sentence) {
