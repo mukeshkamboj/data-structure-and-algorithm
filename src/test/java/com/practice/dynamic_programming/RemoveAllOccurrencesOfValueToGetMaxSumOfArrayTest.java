@@ -39,7 +39,7 @@ public class RemoveAllOccurrencesOfValueToGetMaxSumOfArrayTest {
   public void GIVEN_null_array_WHEN_find_function_is_invoked_THEN_minus_one_is_returned() {
 
     //GIVEN
-    int[] arr = {};
+    int[] arr = null;
 
     //WHEN
     int result = RemoveAllOccurrencesOfValueToGetMaxSumOfArray.find(arr);

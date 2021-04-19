@@ -58,7 +58,7 @@ public class FindSameDegreeMinSubArrayLengthTest {
   @Test
   public void GIVEN_a_null_array_WHEN_findSameDegreeSubArrayLength_is_invoked_THEN_zero_is_returned() {
     //GIVEN
-    int[] arr = {};
+    int[] arr = null;
 
     //WHEN
     int result = FindSameDegreeSubArrayLength.findSameDegreeMinSubArrayLength(arr);

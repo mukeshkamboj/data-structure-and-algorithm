@@ -6,8 +6,8 @@ public class FindMaxWealth {
     int max = 0;
     for (int[] wealth : customersWealth) {
       int temp = 0;
-      for (int i = 0; i < wealth.length; i++) {
-        temp += wealth[i];
+      for (int j : wealth) {
+        temp += j;
       }
       max = Math.max(max, temp);
     }
