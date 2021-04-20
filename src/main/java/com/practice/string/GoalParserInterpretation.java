@@ -3,6 +3,7 @@ package com.practice.string;
 import java.util.HashMap;
 import java.util.Map;
 
+//https://leetcode.com/problems/goal-parser-interpretation/
 public class GoalParserInterpretation {
 
   public String interpret(String command) {
