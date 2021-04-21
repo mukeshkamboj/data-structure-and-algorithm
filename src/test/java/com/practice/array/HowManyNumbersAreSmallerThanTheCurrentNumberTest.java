@@ -6,7 +6,7 @@ import static org.hamcrest.core.Is.is;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class HowManyNumbersAreSmallerThanTheCurrentNumberTest {
+public class HowManyNumbersAreSmallerThanTheCurrentNumberTest {
 
   @DisplayName("GIVEN an non array with duplicate numbers WHEN findSmallerNumbersCount is called THEN it returns an array with count of smaller numbers for each element in the array")
   @Test
