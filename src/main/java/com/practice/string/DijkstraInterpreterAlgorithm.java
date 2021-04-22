@@ -12,8 +12,7 @@ public class DijkstraInterpreterAlgorithm {
     for (int i = 0; i < expressions_values.length; i++) {
       String char_under_question = expressions_values[i];
       switch (char_under_question) {
-        case " ":
-        case "(":
+        case " ", "(":
           continue;
         case ")":
           double value_2 = values.pop();
@@ -32,10 +31,7 @@ public class DijkstraInterpreterAlgorithm {
             values.push(value_1 / value_2);
           }
           break;
-        case "+":
-        case "-":
-        case "*":
-        case "/":
+        case "+", "-", "*", "/":
           operation.push(char_under_question);
           break;
         default:
