@@ -1,4 +1,4 @@
-package com.practice;
+package com.practice.slow_fast_pointers;
 
 //https://leetcode.com/problems/linked-list-cycle/submissions/
 public class FindLoopInTheLinkedList {

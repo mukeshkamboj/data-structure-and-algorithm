@@ -1,8 +1,9 @@
-package com.practice;
+package com.practice.slow_fast_pointers;
 
 import static org.hamcrest.core.Is.is;
 
-import com.practice.FindLoopInTheLinkedList.Node;
+import com.practice.slow_fast_pointers.FindLoopInTheLinkedList;
+import com.practice.slow_fast_pointers.FindLoopInTheLinkedList.Node;
 import org.hamcrest.MatcherAssert;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
