@@ -7,17 +7,6 @@ import org.junit.jupiter.api.Test;
 
 public class LongestIncreasingSubSequence_O_N_SquareTest {
 
-  @DisplayName("GIVEN an array with the multiple increase sequence WHEN findMax is invoked THEN it returns the size of longest LIS")
-  @Test
-  public void testFindMaxWithMultipleIncreasingSequences() {
-    //WHEN
-    int[] arr = {10, 9, 2, 5, 3, 7, 101, 18};
-    //GIVEN
-    int max = new LongestIncreasingSubSequence_O_N_Square().findMax(arr);
-    //THEN
-    MatcherAssert.assertThat(max, Is.is(4));
-  }
-
   @DisplayName("GIVEN an array with no increase sequence WHEN findMax is invoked THEN it returns 1")
   @Test
   public void testFindMaxWithDecreasingSequences() {
@@ -27,6 +16,17 @@ public class LongestIncreasingSubSequence_O_N_SquareTest {
     int max = new LongestIncreasingSubSequence_O_N_Square().findMax(arr);
     //THEN
     MatcherAssert.assertThat(max, Is.is(1));
+  }
+
+  @DisplayName("GIVEN an array with the multiple increase sequence WHEN findMax is invoked THEN it returns the size of longest LIS")
+  @Test
+  public void testFindMaxWithMultipleIncreasingSequences() {
+    //WHEN
+    int[] arr = {10, 9, 2, 5, 3, 7, 101, 18};
+    //GIVEN
+    int max = new LongestIncreasingSubSequence_O_N_Square().findMax(arr);
+    //THEN
+    MatcherAssert.assertThat(max, Is.is(4));
   }
 
   @DisplayName("GIVEN an array with elements sorted in the increasing order WHEN findMax is invoked THEN it returns the size of the array")
