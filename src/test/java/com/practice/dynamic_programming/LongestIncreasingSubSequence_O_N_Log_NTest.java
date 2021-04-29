@@ -6,7 +6,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 public class LongestIncreasingSubSequence_O_N_Log_NTest {
-  
+
   @DisplayName("GIVEN an array with no increase sequence WHEN findMax is invoked THEN it returns 1")
   @Test
   public void testFindMaxWithDecreasingSequences() {
