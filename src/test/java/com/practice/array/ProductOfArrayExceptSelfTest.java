@@ -29,7 +29,7 @@ public class ProductOfArrayExceptSelfTest {
     MatcherAssert.assertThat(result, Is.is(new int[]{-120, -60, 40, -30, -24}));
   }
 
-  @DisplayName("GIVEN an array containing zero WHEN productExceptSelf is invoked THEN it returns an array with products except itself")
+  @DisplayName("GIVEN an array containing one zero WHEN productExceptSelf is invoked THEN it returns an array with products except itself")
   @Test
   public void testProductExceptSelfWithArrayContainingZero() {
     //GIVEN
@@ -38,6 +38,17 @@ public class ProductOfArrayExceptSelfTest {
     int[] result = new ProductOfArrayExceptSelf().productExceptSelf(arr);
     //THEN
     MatcherAssert.assertThat(result, Is.is(new int[]{0, 0, 40, 0, 0}));
+  }
+
+  @DisplayName("GIVEN an array containing more than one zeroes WHEN productExceptSelf is invoked THEN it returns an array with products except itself")
+  @Test
+  public void testProductExceptSelfWithArrayContainingMoreThanOneZeroes() {
+    //GIVEN
+    int[] arr = {1, 2, 0, 4, 5, 0};
+    //WHEN
+    int[] result = new ProductOfArrayExceptSelf().productExceptSelf(arr);
+    //THEN
+    MatcherAssert.assertThat(result, Is.is(new int[]{0, 0, 0, 0, 0, 0}));
   }
 
   @DisplayName("GIVEN an empty array WHEN productExceptSelf is invoked THEN it returns an empty array")
