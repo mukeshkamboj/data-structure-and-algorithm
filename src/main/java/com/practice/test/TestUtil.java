@@ -4,11 +4,25 @@ import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
 import java.util.HashSet;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 
 public class TestUtil {
+
+  public static List<List<Integer>> convert(int[][] arrays) {
+    List<List<Integer>> lists = new LinkedList<>();
+    for (int i = 0; i < arrays.length; i++) {
+      List<Integer> list = new LinkedList<>();
+      int[] arr = arrays[i];
+      for (int j = 0; j < arr.length; j++) {
+        list.add(arr[j]);
+      }
+      lists.add(list);
+    }
+    return lists;
+  }
 
   public static boolean areEqual(int[][] result, List<List<Integer>> allPathsSourceTarget) {
 
