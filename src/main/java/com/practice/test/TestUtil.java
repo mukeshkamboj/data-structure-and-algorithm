@@ -3,6 +3,7 @@ package com.practice.test;
 import static java.util.stream.Collectors.toList;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
@@ -11,13 +12,18 @@ import java.util.Set;
 
 public class TestUtil {
 
+  public static List<String> convert(String[] arrays) {
+    List<String> list = new LinkedList<>();
+    Collections.addAll(list, arrays);
+    return list;
+  }
+
   public static List<List<Integer>> convert(int[][] arrays) {
     List<List<Integer>> lists = new LinkedList<>();
-    for (int i = 0; i < arrays.length; i++) {
+    for (int[] array : arrays) {
       List<Integer> list = new LinkedList<>();
-      int[] arr = arrays[i];
-      for (int j = 0; j < arr.length; j++) {
-        list.add(arr[j]);
+      for (int i : array) {
+        list.add(i);
       }
       lists.add(list);
     }
