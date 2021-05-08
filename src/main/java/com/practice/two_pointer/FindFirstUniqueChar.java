@@ -2,6 +2,8 @@ package com.practice.two_pointer;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.PriorityQueue;
+
 //https://leetcode.com/problems/first-unique-character-in-a-string/
 public class FindFirstUniqueChar {
 
