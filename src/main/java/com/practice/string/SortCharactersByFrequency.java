@@ -20,7 +20,6 @@ public class SortCharactersByFrequency {
           charIndex = i;
         }
       }
-
       if (max == 0) {
         return new String(output);
       }
