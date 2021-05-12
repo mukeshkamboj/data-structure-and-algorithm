@@ -12,12 +12,12 @@ public class GoalParserInterpretation {
     map.put("()", "o");
     map.put("(al)", "al");
     StringBuilder sb = new StringBuilder();
-    StringBuffer temp = new StringBuffer();
+    StringBuilder temp = new StringBuilder();
     for (int i = 0; i < command.length(); i++) {
       temp.append(command.charAt(i));
       if (map.containsKey(temp.toString())) {
         sb.append(map.get(temp.toString()));
-        temp = new StringBuffer();
+        temp = new StringBuilder();
       }
     }
     return sb.toString();
