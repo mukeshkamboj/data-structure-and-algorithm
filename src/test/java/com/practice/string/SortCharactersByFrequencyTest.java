@@ -23,7 +23,9 @@ public class SortCharactersByFrequencyTest {
   static Stream<Arguments> testInputProvider() {
     return Stream.of(
         Arguments.arguments("cccaaa", "aaaccc"),
-        Arguments.arguments("Aabb", "bbAa")
+        Arguments.arguments("Aabb", "bbAa"),
+        Arguments.arguments("", ""),
+        Arguments.arguments("  ", "  ")
     );
   }
 }
