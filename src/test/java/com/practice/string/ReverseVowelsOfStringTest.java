@@ -20,6 +20,7 @@ public class ReverseVowelsOfStringTest {
   static Stream<Arguments> testDataProvider() {
     return Stream.of(
         Arguments.arguments(" ", " "),
+        Arguments.arguments("", ""),
         Arguments.arguments("!@#$#@", "!@#$#@"),
         Arguments.arguments("aA", "Aa"),
         Arguments.arguments("aaaaaa", "aaaaaa"),
