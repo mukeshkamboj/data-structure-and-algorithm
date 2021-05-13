@@ -1,39 +1,31 @@
 package com.practice.sliding_window;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class PermutationInAStringTest {
 
-  @Test
-  public void test_1() {
-    boolean foundPermutation = PermutationInAString.find("oidbcaf", "abc");
-    assertThat(foundPermutation, is(true));
+  @ParameterizedTest
+  @MethodSource("testDataProvider")
+  public void testFind(String stringContainingThePermutation, String pattern, boolean expected) {
+    //WHEN
+    boolean containingPermutation = new PermutationInAString()
+        .checkInclusion(pattern, stringContainingThePermutation);
+    //THEN
+    Assertions.assertEquals(expected, containingPermutation);
   }
 
-  @Test
-  public void test_2() {
-    boolean foundPermutation = PermutationInAString.find("odicf", "dc");
-    assertThat(foundPermutation, is(false));
-  }
-
-  @Test
-  public void test_3() {
-    boolean foundPermutation = PermutationInAString.find("bcdxabcdy", "bcdyabcdx");
-    assertThat(foundPermutation, is(true));
-  }
-
-  @Test
-  public void test_4() {
-    boolean foundPermutation = PermutationInAString.find("aaacb", "aabca");
-    assertThat(foundPermutation, is(true));
-  }
-
-  @Test
-  public void test_5() {
-    boolean foundPermutation = PermutationInAString.find("ppqp", "pq");
-    assertThat(foundPermutation, is(true));
+  static Stream<Arguments> testDataProvider() {
+    return Stream.of(
+        Arguments.arguments("abcdxabcde", "abcdeabcdx", true),
+        Arguments.arguments("oidbcaf", "abc", true),
+        Arguments.arguments("odicf", "dc", false),
+        Arguments.arguments("bcdxabcdy", "bcdyabcdx", true),
+        Arguments.arguments("aaacb", "aabca", true),
+        Arguments.arguments("ppqp", "pq", true)
+    );
   }
 }
