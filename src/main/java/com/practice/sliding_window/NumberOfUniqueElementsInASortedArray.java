@@ -1,6 +1,6 @@
 package com.practice.sliding_window;
 
-public class NumberOfUniqueElementsInAnArray {
+public class NumberOfUniqueElementsInASortedArray {
 
   public static int find(int[] array) {
     int result = 1;
