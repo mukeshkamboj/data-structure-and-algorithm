@@ -5,6 +5,10 @@ import static java.lang.Integer.MIN_VALUE;
 public class MaxSumOfContiguousSubArray {
 
   public static int findMaxSum(int subArraySize, int[] array) {
+    if (array.length == 0) {
+      return 0;
+    }
+
     int maxSum = MIN_VALUE;
     int windowSum = 0;
     int windowStart = 0;
