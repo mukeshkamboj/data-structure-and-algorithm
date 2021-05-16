@@ -2,7 +2,7 @@ package com.practice.sliding_window;
 
 public class AvgOfContiguousSubArray {
 
-  public static double[] findAvgOfContiguousSubArray(int subArraySize, int[] array) {
+  public double[] findAvgOfContiguousSubArray(int subArraySize, int[] array) {
     double[] result = new double[array.length - subArraySize + 1];
     int windowSum = 0;
     int windowIndex = 0;
@@ -19,5 +19,4 @@ public class AvgOfContiguousSubArray {
     }
     return result;
   }
-
 }

@@ -1,27 +1,30 @@
 package com.practice.sliding_window;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
-
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class LongestSubStringWithKDistinctCharactersTest {
 
-  @Test
-  public void test_1() {
-    int length = LongestSubStringWithKDistinctCharacters.find(2, "araaci");
-    assertThat(4, is(length));
+  @ParameterizedTest
+  @MethodSource("testDataMethod")
+  public void testFind(String str, int distinctChars, int expected) {
+    //WHEN
+    var longestSubString = new LongestSubStringWithKDistinctCharacters().find(distinctChars, str);
+    //THEN
+    Assertions.assertEquals(expected, longestSubString);
   }
 
-  @Test
-  public void test_2() {
-    int length = LongestSubStringWithKDistinctCharacters.find(1, "araaci");
-    assertThat(2, is(length));
-  }
-
-  @Test
-  public void test_3() {
-    int length = LongestSubStringWithKDistinctCharacters.find(3, "cbbebi");
-    assertThat(5, is(length));
+  static Stream<Arguments> testDataMethod() {
+    return Stream.of(
+        Arguments.arguments("araaci", 2, 4),
+        Arguments.arguments("cbbebi", 3, 5),
+        Arguments.arguments("araaci", 1, 2),
+        Arguments.arguments("a", 1, 1),
+        Arguments.arguments("aaaaaaaaaaaaaaaaaaaa", 1, 20),
+        Arguments.arguments("aaaaaaaaaaaaaaaaaaaa", 2, 20)
+    );
   }
 }

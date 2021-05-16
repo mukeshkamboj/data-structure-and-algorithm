@@ -1,11 +1,39 @@
 package com.practice.sliding_window;
 
-import java.util.HashMap;
-import java.util.Map;
-
+// https://leetcode.com/problems/longest-substring-with-at-most-k-distinct-characters/
 public class LongestSubStringWithKDistinctCharacters {
 
-  public static int find(int distinctChars, String str) {
+  public int find(int distinctChars, String str) {
+
+    int left = 0;
+    int right = 0;
+    int max = 0;
+    int[] chMap = new int[26];
+    var len = str.length();
+    int u = 0;
+    for (; right < len; right++) {
+      char chR = str.charAt(right);
+      if (chMap[chR - 'a'] == 0) {
+        u++;
+      }
+      chMap[chR - 'a']++;
+      while (u > distinctChars) {
+        char chL = str.charAt(left);
+        chMap[chL - 'a']--;
+        if (chMap[chL - 'a'] == 0) {
+          u--;
+        }
+        left++;
+      }
+      max = Math.max(max, right - left + 1);
+    }
+    return max;
+  }
+
+}
+
+/*
+{
     Map<Character, Integer> map = new HashMap<>();
     int longestSubStringLength = 0;
     int windowStart = 0;
@@ -34,5 +62,4 @@ public class LongestSubStringWithKDistinctCharacters {
 
     return longestSubStringLength;
   }
-
-}
+ */
