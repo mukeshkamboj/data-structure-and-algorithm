@@ -1,32 +1,37 @@
 package com.practice.sliding_window;
 
-import java.util.HashMap;
-import java.util.Map;
-
+// https://leetcode.com/problems/longest-repeating-character-replacement/
 public class LongestSubstringWithSameLettersAfterReplacement {
 
-  public static int find(int allowedReplacements, String str) {
-    int longestSubstring = 0;
-    int windowStart = 0;
-    int maxFrequencyOfChar = 0;
-    Map<Character, Integer> frequencyMap = new HashMap<>();
-
-    for (int windowEnd = 0; windowEnd < str.length(); windowEnd++) {
-      char ch = str.charAt(windowEnd);
-      frequencyMap.put(ch, frequencyMap.getOrDefault(ch, 0) + 1);
-      maxFrequencyOfChar = Math.max(maxFrequencyOfChar, frequencyMap.get(ch));
-
-      if (windowEnd - windowStart + 1 - maxFrequencyOfChar > allowedReplacements) {
-        ch = str.charAt(windowStart);
-        frequencyMap.put(ch, frequencyMap.get(ch) - 1);
-        maxFrequencyOfChar = Math.max(maxFrequencyOfChar, frequencyMap.get(ch));
-        windowStart++;
+  public int find(String str, int allowedReplacements) {
+    int[] chMap = new int[26];
+    int left = 0;
+    int right = 0;
+    int max = 1;
+    int maxF = 0;
+    int len = str.length();
+    for (; right < len; right++) {
+      char chR = str.charAt(right);
+      chMap[chR - 'A']++;
+      maxF = Math.max(maxF, chMap[chR - 'A']);
+      while (right - left + 1 - maxF > allowedReplacements) {
+        char chL = str.charAt(left);
+        chMap[chL - 'A']--;
+        left++;
       }
-
-      longestSubstring = Math.max(longestSubstring, windowEnd - windowStart + 1);
+      maxF = max(chMap);
+      max = Math.max(right - left + 1, max);
     }
-
-    return longestSubstring;
+    return max;
   }
 
+  static int max(int[] chMap) {
+    int max = chMap[0];
+    for (int i = 1; i < chMap.length; i++) {
+      if (max < chMap[i]) {
+        max = chMap[i];
+      }
+    }
+    return max;
+  }
 }
