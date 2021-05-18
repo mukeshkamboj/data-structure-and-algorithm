@@ -3,27 +3,26 @@ package com.practice.array;
 //https://leetcode.com/problems/plus-one/
 public class PlusOne {
 
-  public int[] plusOne(int[] arr) {
-    int[] result = new int[arr.length];
-    int carry = 1;
-    for (int i = arr.length - 1; i >= 0; i--) {
-      int digit = arr[i] + carry;
-      if (digit / 10 != 0) {
-        carry = 1;
+  public int[] plusOne(int[] digits) {
+    int[] result = new int[digits.length];
+    int c = 1;
+    for (int i = digits.length - 1; i >= 0; i--) {
+      int d = c + digits[i];
+      if (d / 10 >= 1) {
+        c = d / 10;
       } else {
-        carry = 0;
+        c = 0;
       }
-      result[i] = digit % 10;
+      result[i] = d % 10;
     }
-    if (carry == 1) {
-      int[] newArray = new int[arr.length + 1];
-      newArray[0] = 1;
-      int index = 1;
-      for (int val : result) {
-        newArray[index++] = val;
-      }
-      result = newArray;
+
+    if (c != 0) {
+      int[] temp = new int[digits.length + 1];
+      temp[0] = c;
+      System.arraycopy(result, 0, temp, 1, result.length);
+      result = temp;
     }
+
     return result;
   }
 }
