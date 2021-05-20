@@ -17,7 +17,6 @@ public class ShortestPathTest {
     int startingVertex = 2;
 
     //WHEN
-
     int[] shortestDistancesFromStartNode = ShortestPath
         .shortestReach(verticesCount, graph, startingVertex);
 

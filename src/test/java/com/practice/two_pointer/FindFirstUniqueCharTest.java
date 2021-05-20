@@ -1,5 +1,6 @@
 package com.practice.two_pointer;
 
+import com.practice.two_pointers.FindFirstUniqueChar;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.params.ParameterizedTest;
