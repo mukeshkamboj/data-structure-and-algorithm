@@ -1,42 +1,28 @@
 package com.practice.array;
 
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.core.Is;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class FindMaxSumOfSubArrayTest {
 
-  @DisplayName("GIVEN an array WHEN maxSubArraySum is invoked THEN max sum of sub array is returned")
-  @Test
-  public void testMaxSubArraySum() {
-    //GIVEN
-    int[] arr = {-2, 1, -3, 4, -1, 2, 1, -5, 4};
+  @ParameterizedTest
+  @MethodSource("testDataProvider")
+  public void testMaxSubArraySum(int[] arr, int expectedMaxSum) {
     //WHEN
-    int maxSum = new FindMaxSumOfSubArray().maxSubArraySum(arr);
+    var maxSum = new FindMaxSumOfSubArray().maxSubArraySum(arr);
     //THEN
-    MatcherAssert.assertThat(maxSum, Is.is(6));
+    Assertions.assertEquals(expectedMaxSum, maxSum);
   }
 
-  @DisplayName("GIVEN an array where only one number is positive and rest are -ve WHEN maxSubArraySum is invoked THEN positive number is returned")
-  @Test
-  public void testMaxSubArraySumOnlyOneElementIsPositive() {
-    //GIVEN
-    int[] arr = {-2, -1, -3, 100, -1, -2, -1, -5, -4};
-    //WHEN
-    int maxSum = new FindMaxSumOfSubArray().maxSubArraySum(arr);
-    //THEN
-    MatcherAssert.assertThat(maxSum, Is.is(100));
-  }
-
-  @DisplayName("GIVEN an array with single element THEN maxSubArraySum is invoked THEN given single element is returned")
-  @Test
-  public void testMaxSubArraySumArrayHasSingleElement() {
-    //GIVEN
-    int[] arr = {1};
-    //WHEN
-    int maxSum = new FindMaxSumOfSubArray().maxSubArraySum(arr);
-    //THEN
-    MatcherAssert.assertThat(maxSum, Is.is(1));
+  static Stream<Arguments> testDataProvider() {
+    return Stream.of(
+        Arguments.arguments(new int[]{-2, 1, -3, 4, -1, 2, 1, -5, 4}, 6),
+        Arguments.arguments(new int[]{1}, 1),
+        Arguments.arguments(new int[]{1, 2, 3, 4, 5}, 15),
+        Arguments.arguments(new int[]{-2, -1, -3, 100, -1, -2, -1, -5, -4}, 100)
+    );
   }
 }
