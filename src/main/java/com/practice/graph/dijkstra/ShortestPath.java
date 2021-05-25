@@ -8,9 +8,10 @@ import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.stream.IntStream;
 
+//https://www.hackerrank.com/challenges/dijkstrashortreach/problem
 public class ShortestPath {
 
-  static int[] shortestReach(int n, int[][] edges, int startVertexIndex) {
+  public int[] shortestReach(int n, int[][] edges, int startVertexIndex) {
     int[] distanceFromStartVertexIndex = new int[n];
     boolean[] settledNode = new boolean[n];
     PriorityQueue<Integer> queue = new PriorityQueue<>(
