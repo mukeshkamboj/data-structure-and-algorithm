@@ -1,28 +1,26 @@
 package com.practice.graph;
 
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.core.Is.is;
-
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class FindTheTownJudgeTest {
 
-  @DisplayName("Test with Possible Town Judge")
-  @Test
-  public void testWithPossibleTownJudge() {
-    int number = 4;
-    int[][] input = {{1, 3}, {1, 4}, {2, 3}, {2, 4}, {4, 3}};
-    int judge = new FindTheTownJudge().findJudge(number, input);
-    assertThat(judge, is(3));
+  @ParameterizedTest
+  @MethodSource("testDataProvider")
+  public void testFindJudge(int[][] g, int people, int expected) {
+    //WHEN
+    var judge = new FindTheTownJudge().findJudge(people, g);
+    //THEN
+    Assertions.assertEquals(expected, judge);
   }
 
-  @DisplayName("Test with no Town Judge")
-  @Test
-  public void testWithNoTownJudge() {
-    int number = 3;
-    int[][] input = {{1, 3}, {3, 1}, {2, 3}};
-    int judge = new FindTheTownJudge().findJudge(number, input);
-    assertThat(judge, is(-1));
+  static Stream<Arguments> testDataProvider() {
+    return Stream.of(
+        Arguments.arguments(new int[][]{{1, 3}, {1, 4}, {2, 3}, {2, 4}, {4, 3}}, 4, 3),
+        Arguments.arguments(new int[][]{{1, 3}, {3, 1}, {2, 3}}, 3, -1)
+    );
   }
 }

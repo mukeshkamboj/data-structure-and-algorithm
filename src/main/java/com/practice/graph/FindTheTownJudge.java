@@ -13,9 +13,9 @@ public class FindTheTownJudge {
     }
 
     for (int i = 1; i < count.length; ++i) {
-        if (count[i] == N - 1) {
-            return i;
-        }
+      if (count[i] == N - 1) {
+        return i;
+      }
     }
     return -1;
   }
