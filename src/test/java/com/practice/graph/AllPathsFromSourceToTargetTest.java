@@ -1,28 +1,29 @@
 package com.practice.graph;
 
 import static com.practice.test.TestUtil.areEqual;
-import static java.util.stream.Collectors.toList;
 
-import java.util.Arrays;
-import java.util.List;
-import org.hamcrest.MatcherAssert;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class AllPathsFromSourceToTargetTest {
 
-  @DisplayName("Find all the possible paths between the Source and Destination")
-  @Test
-  public void findAllThePossiblePaths() {
+  @ParameterizedTest
+  @MethodSource("testDataProvider")
+  public void testAllPathsSourceTarget(int[][] g, int[][] expected) {
+    //WHEN
+    var result = new AllPathsFromSourceToTarget()
+        .allPathsSourceTarget(g);
+    //THEN
+    Assertions.assertTrue(areEqual(expected, result));
+  }
 
-    int[][] graph = {{4, 3, 1}, {3, 2, 4}, {3}, {4}, {}};
-    int[][] result = {{0, 4}, {0, 3, 4}, {0, 1, 3, 4}, {0, 1, 2, 3, 4}, {0, 1, 4}};
-
-    List<List<Integer>> allPathsSourceTarget = new AllPathsFromSourceToTarget()
-        .allPathsSourceTarget(graph);
-    boolean areEqual = areEqual(result, allPathsSourceTarget);
-    MatcherAssert.assertThat(
-        "expected : " + Arrays.stream(result).map(Arrays::toString).collect(toList()) + " actual : "
-            + allPathsSourceTarget, areEqual);
+  static Stream<Arguments> testDataProvider() {
+    return Stream.of(
+        Arguments.arguments(new int[][]{{4, 3, 1}, {3, 2, 4}, {3}, {4}, {}},
+            new int[][]{{0, 4}, {0, 3, 4}, {0, 1, 3, 4}, {0, 1, 2, 3, 4}, {0, 1, 4}})
+    );
   }
 }
