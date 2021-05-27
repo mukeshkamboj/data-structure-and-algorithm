@@ -7,7 +7,7 @@ import java.util.stream.IntStream;
 //https://leetcode.com/problems/min-cost-to-connect-all-points/
 public class MinCostToConnectAllPoints {
 
-  public static int minCostConnectPoints(int[][] points) {
+  public int minCostConnectPoints(int[][] points) {
     int pointsCount = points.length;
     int[][] dist = new int[pointsCount][pointsCount];
     int[] disjointSet = new int[pointsCount];
