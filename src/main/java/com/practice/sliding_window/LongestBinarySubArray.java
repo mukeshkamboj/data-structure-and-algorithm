@@ -2,7 +2,7 @@ package com.practice.sliding_window;
 
 public class LongestBinarySubArray {
 
-  public static int find(int maxReplacementAllowed, int[] array) {
+  public int find(int maxReplacementAllowed, int[] array) {
     int longestSubArray = 0;
     int windowStart = 0;
     int windowEnd = 0;
