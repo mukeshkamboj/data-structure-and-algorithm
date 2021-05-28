@@ -2,7 +2,11 @@ package com.practice.sliding_window;
 
 public class NumberOfUniqueElementsInASortedArray {
 
-  public static int find(int[] array) {
+  public int find(int[] array) {
+    if (array.length == 0) {
+      return 0;
+    }
+
     int result = 1;
     int startingPointer = 0;
     int endPointer = 0;
