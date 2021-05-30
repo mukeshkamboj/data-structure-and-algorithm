@@ -30,10 +30,10 @@ public class TestUtil {
     return lists;
   }
 
-  public static boolean areEqual(int[][] result, List<List<Integer>> allPathsSourceTarget) {
+  public static boolean areEqual(int[][] result, List<List<Integer>> lists) {
 
     for (int[] list : result) {
-      List<List<Integer>> collect = allPathsSourceTarget.stream()
+      List<List<Integer>> collect = lists.stream()
           .filter(val -> val.size() == list.length).collect(toList());
       Optional<List<Integer>> first = collect.stream().filter(l -> {
         Set<Integer> set1 = new HashSet<>(l);
@@ -43,12 +43,12 @@ public class TestUtil {
       }).findFirst();
 
       if (first.isPresent()) {
-        allPathsSourceTarget.remove(first.get());
+        lists.remove(first.get());
       } else {
         return false;
       }
     }
 
-    return allPathsSourceTarget.size() == 0;
+    return lists.size() == 0;
   }
 }
