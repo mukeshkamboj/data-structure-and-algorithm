@@ -3,7 +3,7 @@ package com.practice.sliding_window;
 //https://leetcode.com/problems/longest-palindromic-substring/
 public class LongestPalindromicSubStringLength {
 
-  public static String longestPalindrome(String str) {
+  public String longestPalindrome(String str) {
     if (str.equals("") || str.length() == 1) {
       return str;
     }
