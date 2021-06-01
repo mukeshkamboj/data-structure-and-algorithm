@@ -6,15 +6,15 @@ public class IntersectionOfTwoArrays {
   public int[] intersection(int[] nums1, int[] nums2) {
     int[] count = new int[1000];
 
-    for (int i = 0; i < nums1.length; i++) {
-      if (count[nums1[i]] == 0) {
-        count[nums1[i]]++;
+    for (int j : nums1) {
+      if (count[j] == 0) {
+        count[j]++;
       }
     }
 
-    for (int i = 0; i < nums2.length; i++) {
-      if (count[nums2[i]] >= 1) {
-        count[nums2[i]]++;
+    for (int j : nums2) {
+      if (count[j] >= 1) {
+        count[j]++;
       }
     }
 
@@ -35,5 +35,4 @@ public class IntersectionOfTwoArrays {
 
     return result;
   }
-
 }

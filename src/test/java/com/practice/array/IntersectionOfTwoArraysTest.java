@@ -1,45 +1,27 @@
 package com.practice.array;
 
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.core.Is;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class IntersectionOfTwoArraysTest {
 
-  @DisplayName("GIVEN two arrays with some intersecting elements WHEN intersection is called THEN it returns the array with intersection")
-  @Test
-  public void testIntersection() {
-    //GIVEN
-    int[] arr1 = {1, 2, 2, 1};
-    int[] arr2 = {1, 2};
+  @ParameterizedTest
+  @MethodSource("testDataProvider")
+  public void testIntersection(int[] arr1, int[] arr2, int[] expected) {
     //WHEN
-    int[] intersection = new IntersectionOfTwoArrays().intersection(arr1, arr2);
+    var intersection = new IntersectionOfTwoArrays().intersection(arr1, arr2);
     //THEN
-    MatcherAssert.assertThat(intersection, Is.is(new int[]{1, 2}));
+    Assertions.assertArrayEquals(expected, intersection);
   }
 
-  @DisplayName("GIVEN two arrays with no intersecting elements WHEN intersection is called THEN it returns an empty array")
-  @Test
-  public void testIntersectionWithNoCommonElements() {
-    //GIVEN
-    int[] arr1 = {1, 2, 2, 1};
-    int[] arr2 = {3, 4};
-    //WHEN
-    int[] intersection = new IntersectionOfTwoArrays().intersection(arr1, arr2);
-    //THEN
-    MatcherAssert.assertThat(intersection, Is.is(new int[]{}));
-  }
-
-  @DisplayName("GIVEN two empty arrays WHEN intersection is called THEN it returns an empty array")
-  @Test
-  public void testIntersectionWithTwoEmptyArrays() {
-    //GIVEN
-    int[] arr1 = {};
-    int[] arr2 = {};
-    //WHEN
-    int[] intersection = new IntersectionOfTwoArrays().intersection(arr1, arr2);
-    //THEN
-    MatcherAssert.assertThat(intersection, Is.is(new int[]{}));
+  static Stream<Arguments> testDataProvider() {
+    return Stream.of(
+        Arguments.arguments(new int[]{1, 2, 2, 1}, new int[]{1, 2}, new int[]{1, 2}),
+        Arguments.arguments(new int[]{1, 2, 2, 1}, new int[]{3, 4}, new int[]{}),
+        Arguments.arguments(new int[]{}, new int[]{}, new int[]{})
+    );
   }
 }
