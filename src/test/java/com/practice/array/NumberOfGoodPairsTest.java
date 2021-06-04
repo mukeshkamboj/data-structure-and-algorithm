@@ -1,42 +1,27 @@
 package com.practice.array;
 
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.core.Is;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class NumberOfGoodPairsTest {
 
-  @DisplayName("GIVEN an array with duplicate values WHEN numIdenticalPairs is called THEN it returns the count of pairs")
-  @Test
-  public void testFindGoodPaisCount() {
-    //GIVEN
-    int[] arr = {1, 2, 3, 1, 1, 3};
+  @ParameterizedTest
+  @MethodSource("testDataProvider")
+  public void testNumIdenticalPairs(int[] arr, int expectedNumIdenticalPairs) {
     //WHEN
-    int pairCount = NumberOfGoodPairs.numIdenticalPairs(arr);
+    var numIdenticalPairs = NumberOfGoodPairs.numIdenticalPairs(arr);
     //THEN
-    MatcherAssert.assertThat(pairCount, Is.is(4));
+    Assertions.assertEquals(expectedNumIdenticalPairs, numIdenticalPairs);
   }
 
-  @DisplayName("GIVEN an array with no duplicate values WHEN numIdenticalPairs is called THEN it returns 0")
-  @Test
-  public void testFindGoodPaisCountWithNoDuplicates() {
-    //GIVEN
-    int[] arr = {1, 2, 3, 4, 5, 6};
-    //WHEN
-    int pairCount = NumberOfGoodPairs.numIdenticalPairs(arr);
-    //THEN
-    MatcherAssert.assertThat(pairCount, Is.is(0));
-  }
-
-  @DisplayName("GIVEN an array with no values WHEN numIdenticalPairs is called THEN it returns 0")
-  @Test
-  public void testFindGoodPaisCountWithEmptyArray() {
-    //GIVEN
-    int[] arr = {};
-    //WHEN
-    int pairCount = NumberOfGoodPairs.numIdenticalPairs(arr);
-    //THEN
-    MatcherAssert.assertThat(pairCount, Is.is(0));
+  static Stream<Arguments> testDataProvider() {
+    return Stream.of(
+        Arguments.arguments(new int[]{1, 2, 3, 1, 1, 3}, 4),
+        Arguments.arguments(new int[]{1, 2, 3, 4, 5, 6}, 0),
+        Arguments.arguments(new int[]{}, 0)
+    );
   }
 }
