@@ -1,42 +1,27 @@
 package com.practice.array;
 
-import org.hamcrest.MatcherAssert;
-import org.hamcrest.core.Is;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+import java.util.stream.Stream;
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class FindDuplicateInArrayTest {
 
-  @DisplayName("GIVEN an array with duplicates WHEN containsDuplicate is invoked THEN it returns true")
-  @Test
-  public void testContainsDuplicate() {
-    //GIVEN
-    int[] arr = {1, 2, 3, 1, 2};
+  @ParameterizedTest
+  @MethodSource("testDataProvider")
+  public void testContainsDuplicate(int[] arr, boolean expected) {
     //WHEN
-    boolean containsDuplicate = new FindDuplicateInArray().containsDuplicate(arr);
+    var containsDuplicate = new FindDuplicateInArray().containsDuplicate(arr);
     //THEN
-    MatcherAssert.assertThat(containsDuplicate, Is.is(true));
+    Assertions.assertEquals(expected, containsDuplicate);
   }
 
-  @DisplayName("GIVEN an array with no duplicates WHEN containsDuplicate is invoked THEN it returns false")
-  @Test
-  public void testContainsDuplicateWithArrayWithNoDuplicates() {
-    //GIVEN
-    int[] arr = {1, 2, 3};
-    //WHEN
-    boolean containsDuplicate = new FindDuplicateInArray().containsDuplicate(arr);
-    //THEN
-    MatcherAssert.assertThat(containsDuplicate, Is.is(false));
-  }
-
-  @DisplayName("GIVEN an array with single element WHEN containsDuplicate is invoked THEN it returns false")
-  @Test
-  public void testContainsDuplicateWithArrayWithSingleElement() {
-    //GIVEN
-    int[] arr = {1};
-    //WHEN
-    boolean containsDuplicate = new FindDuplicateInArray().containsDuplicate(arr);
-    //THEN
-    MatcherAssert.assertThat(containsDuplicate, Is.is(false));
+  static Stream<Arguments> testDataProvider() {
+    return Stream.of(
+        Arguments.arguments(new int[]{1, 2, 3, 1, 2}, true),
+        Arguments.arguments(new int[]{1, 2, 3}, false),
+        Arguments.arguments(new int[]{1}, false)
+    );
   }
 }
