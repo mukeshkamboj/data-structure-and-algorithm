@@ -12,7 +12,7 @@ public class NumberOfGoodPairsTest {
   @MethodSource("testDataProvider")
   public void testNumIdenticalPairs(int[] arr, int expectedNumIdenticalPairs) {
     //WHEN
-    var numIdenticalPairs = NumberOfGoodPairs.numIdenticalPairs(arr);
+    var numIdenticalPairs = new NumberOfGoodPairs().numIdenticalPairs(arr);
     //THEN
     Assertions.assertEquals(expectedNumIdenticalPairs, numIdenticalPairs);
   }
