@@ -8,7 +8,6 @@ import org.junit.jupiter.params.provider.MethodSource;
 
 public class FindMinimumAndMaximumStepsInMazeTest {
 
-
   @ParameterizedTest
   @MethodSource("testDataProvider")
   public void testFindMinSteps(int[][] maze, int expectedMinSteps) {
@@ -28,6 +27,28 @@ public class FindMinimumAndMaximumStepsInMazeTest {
             {1, 0, 0, 0, 1, 0},
             {1, 1, 0, 0, 0, 0}
         }, 10)
+    );
+  }
+
+  @ParameterizedTest
+  @MethodSource("testDataProviderMax")
+  public void testFindMaxSteps(int[][] maze, int expectedMaxSteps) {
+    //WHEN
+    var maxSteps = new FindMinimumAndMaximumStepsInMaze().findMaxSteps(maze);
+    //THEN
+    Assertions.assertEquals(expectedMaxSteps, maxSteps);
+  }
+
+  static Stream<Arguments> testDataProviderMax() {
+    return Stream.of(
+        Arguments.arguments(new int[][]{
+            {0, 1, 1, 0, 0, 0},
+            {0, 0, 0, 0, 1, 0},
+            {1, 0, 1, 0, 1, 0},
+            {0, 0, 0, 1, 0, 0},
+            {1, 0, 0, 0, 1, 0},
+            {1, 1, 0, 0, 0, 0}
+        }, 12)
     );
   }
 }
