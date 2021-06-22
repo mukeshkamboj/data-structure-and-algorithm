@@ -3,7 +3,6 @@ package com.practice.tree;
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.core.Is.is;
 
-import com.practice.tree.LowestCommonAncestorOfABinaryTree.TreeNode;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
