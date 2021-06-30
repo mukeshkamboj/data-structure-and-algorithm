@@ -19,7 +19,7 @@ public class MinimumDepthOfBinaryTreeTest {
 
   static Stream<Arguments> testDataProvider() {
     return Stream.of(
-        Arguments.arguments(TreeUtil.build(new int[]{3, 9, 20, 15, 7}), 2),
+        Arguments.arguments(TreeUtil.build(new int[]{3, 2, 20, 15, 7}), 2),
         Arguments.arguments(TreeUtil.build(new int[]{2, 3, 4, 5, 6}), 5)
     );
   }
