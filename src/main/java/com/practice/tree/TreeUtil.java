@@ -1,6 +1,17 @@
 package com.practice.tree;
 
+import java.util.List;
+
 public class TreeUtil {
+
+  public static void inOrderArray(TreeNode root, List<Integer> list) {
+    if (root == null) {
+      return;
+    }
+    list.add(root.val);
+    inOrderArray(root.left, list);
+    inOrderArray(root.right, list);
+  }
 
   public static TreeNode build(int[] arr) {
     TreeNode root = new TreeNode(arr[0]);

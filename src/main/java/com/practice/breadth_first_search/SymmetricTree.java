@@ -1,5 +1,6 @@
 package com.practice.breadth_first_search;
 
+import com.practice.tree.TreeNode;
 import java.util.Stack;
 
 //https://leetcode.com/problems/symmetric-tree
@@ -63,25 +64,5 @@ public class SymmetricTree {
       }
     }
     return true;
-  }
-
-  public static class TreeNode {
-
-    int val;
-    TreeNode left;
-    TreeNode right;
-
-    TreeNode() {
-    }
-
-    TreeNode(int val) {
-      this.val = val;
-    }
-
-    TreeNode(int val, TreeNode left, TreeNode right) {
-      this.val = val;
-      this.left = left;
-      this.right = right;
-    }
   }
 }
