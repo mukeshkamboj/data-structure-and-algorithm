@@ -23,7 +23,7 @@ public class TargetSumSubSetCountTest {
         Arguments.arguments(new int[]{3, 4, 5, 6}, 15, 1),
         Arguments.arguments(new int[]{3}, 3, 1),
         Arguments.arguments(new int[]{3, 1}, 4, 1),
-        Arguments.arguments(new int[]{1, 1, 1, 1, 1}, 4, 2),
+        Arguments.arguments(new int[]{1, 1, 1, 1, 1}, 4, 5),
         Arguments.arguments(new int[]{3, 4, 5, 6}, 100, 0)
     );
   }
