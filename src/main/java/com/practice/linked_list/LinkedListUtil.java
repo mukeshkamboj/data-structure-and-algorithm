@@ -2,7 +2,7 @@ package com.practice.linked_list;
 
 public class LinkedListUtil {
 
-  public static ListNode createSinglyLinkedList(int[] arr) {
+  public static ListNode createSinglyLinkedList(int ...arr) {
     if (arr == null || arr.length == 0) {
       return null;
     }
