@@ -30,6 +30,15 @@ public class TestUtil {
     return lists;
   }
 
+  public static List<List<String>> convert(String[][] arrays) {
+    List<List<String>> lists = new LinkedList<>();
+    for (String[] array : arrays) {
+      List<String> list = new LinkedList<>(Arrays.asList(array));
+      lists.add(list);
+    }
+    return lists;
+  }
+
   public static boolean areEqual(int[][] result, List<List<Integer>> lists) {
 
     for (int[] list : result) {
