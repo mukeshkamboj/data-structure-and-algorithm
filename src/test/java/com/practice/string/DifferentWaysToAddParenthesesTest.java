@@ -1,6 +1,7 @@
 package com.practice.string;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
@@ -22,7 +23,8 @@ public class DifferentWaysToAddParenthesesTest {
 
   static Stream<Arguments> testDataProvider() {
     return Stream.of(
-//        Arguments.arguments("2-1-1", Arrays.asList(2, 0)),
+        Arguments.arguments("11", Collections.singletonList(11)),
+        Arguments.arguments("2-1-1", Arrays.asList(2, 0)),
         Arguments.arguments("2*3-4*5", Arrays.asList(-34, -10, -14, -10, 10))
     );
   }
