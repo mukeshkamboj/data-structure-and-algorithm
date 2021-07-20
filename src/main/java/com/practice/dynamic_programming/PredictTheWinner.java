@@ -6,58 +6,35 @@ import java.util.Arrays;
 public class PredictTheWinner {
 
   public boolean predictTheWinner(int[] arr) {
-    int[][] memo = buildMemo(arr.length);
+    int[][] dp = new int[arr.length][arr.length];
+    for (int[] k : dp) {
+      Arrays.fill(k, -1);
+    }
 
-    int scoreFirst = predictTheWinnerFrom(arr, 0, arr.length - 1, memo);
-
-    int scoreTotal = getTotalScores(arr);
-
-    return scoreFirst >= scoreTotal - scoreFirst;
+    int p1Score = find(arr, 0, arr.length - 1, dp);
+    int ts = 0;
+    for (int i : arr) {
+      ts += i;
+    }
+    return p1Score >= ts - p1Score;
   }
 
-  private int predictTheWinnerFrom(int[] arr, int i, int j, int[][] memo) {
-    if (i > j) {
+  private int find(int[] arr, int l, int r, int[][] dp) {
+    if (l > r) {
       return 0;
     }
-
-    if (i == j) {
-      return arr[i];
+    if (l == r) {
+      return arr[l];
     }
 
-    if (memo[i][j] != -1) {
-      return memo[i][j];
+    if (dp[l][r] != -1) {
+      return dp[l][r];
     }
 
-    int curScore = Math.max(
-        arr[i] + Math.min(
-            predictTheWinnerFrom(arr, i + 2, j, memo),
-            predictTheWinnerFrom(arr, i + 1, j - 1, memo)
-        ),
-        arr[j] + Math.min(
-            predictTheWinnerFrom(arr, i, j - 2, memo),
-            predictTheWinnerFrom(arr, i + 1, j - 1, memo)
-        )
-    );
-
-    return memo[i][j] = curScore;
-  }
-
-  private int getTotalScores(int[] nums) {
-    int scoreTotal = 0;
-    for (int num : nums) {
-      scoreTotal += num;
-    }
-
-    return scoreTotal;
-  }
-
-  private int[][] buildMemo(int n) {
-    int[][] memo = new int[n][n];
-
-    for (int[] memoRow : memo) {
-      Arrays.fill(memoRow, -1);
-    }
-    return memo;
+    int s1 = arr[l] + Math.min(find(arr, l + 1, r - 1, dp), find(arr, l + 2, r, dp));
+    int s2 = arr[r] + Math.min(find(arr, l + 1, r - 1, dp), find(arr, l, r - 2, dp));
+    dp[l][r] = Math.max(s1, s2);
+    return dp[l][r];
   }
 
 }
