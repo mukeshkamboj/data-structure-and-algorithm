@@ -21,7 +21,8 @@ public class PredictTheWinnerTest {
   static Stream<Arguments> testDataProvider() {
     return Stream.of(
         Arguments.arguments(new int[]{1, 5, 2}, false),
-        Arguments.arguments(new int[]{1, 5, 233, 7}, true)
+        Arguments.arguments(new int[]{1, 5, 233, 7}, true),
+        Arguments.arguments(new int[]{0, 0, 7, 6, 5, 6, 1}, false)
     );
   }
 }
