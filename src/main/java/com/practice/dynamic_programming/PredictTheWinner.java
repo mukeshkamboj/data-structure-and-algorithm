@@ -23,6 +23,7 @@ public class PredictTheWinner {
     if (l > r) {
       return 0;
     }
+
     if (l == r) {
       return arr[l];
     }
