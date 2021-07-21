@@ -20,11 +20,11 @@ public class FindLongestSequenceOfZeros {
   }
 
   static String findBinaryString(int num) {
-    String str = "";
+    StringBuilder str = new StringBuilder();
     while (num > 0) {
-      str = num % 2 + str;
+      str.insert(0, num % 2);
       num = num / 2;
     }
-    return str;
+    return str.toString();
   }
 }
