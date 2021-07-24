@@ -9,8 +9,7 @@ public class DijkstraInterpreterAlgorithm {
 
   public Double interpret(String expression) {
     String[] expressions_values = expression.split(" ");
-    for (int i = 0; i < expressions_values.length; i++) {
-      String char_under_question = expressions_values[i];
+    for (String char_under_question : expressions_values) {
       switch (char_under_question) {
         case " ", "(":
           continue;
