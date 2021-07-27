@@ -1,4 +1,4 @@
-package com.practice.bitoperators;
+package com.practice.bit_manipulation;
 
 //https://leetcode.com/problems/single-number/
 public class FindSingleNumberWhichIsNotDuplicated {

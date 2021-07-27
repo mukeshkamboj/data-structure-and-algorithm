@@ -1,4 +1,4 @@
-package com.practice.bitoperators;
+package com.practice.bit_manipulation;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.api.Assertions;
