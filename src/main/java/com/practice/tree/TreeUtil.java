@@ -14,6 +14,10 @@ public class TreeUtil {
   }
 
   public static TreeNode build(int[] arr) {
+    if (arr.length == 0) {
+      return null;
+    }
+
     TreeNode root = new TreeNode(arr[0]);
     for (int i : arr) {
       add(i, root);
