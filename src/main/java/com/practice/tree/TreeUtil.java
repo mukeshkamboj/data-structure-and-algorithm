@@ -13,7 +13,7 @@ public class TreeUtil {
     inOrderArray(root.right, list);
   }
 
-  public static TreeNode build(int[] arr) {
+  public static TreeNode build(int ...arr) {
     if (arr.length == 0) {
       return null;
     }
