@@ -5,9 +5,9 @@ import lombok.Data;
 @Data
 public class ListNode {
 
-  int val;
-  ListNode next;
-  ListNode pre;
+  public int val;
+  public ListNode next;
+  public ListNode pre;
 
   public ListNode(int val) {
     this.val = val;
